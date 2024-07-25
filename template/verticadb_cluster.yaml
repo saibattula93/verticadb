@@ -1,12 +1,12 @@
 apiVersion: vertica.com/v1
 kind: VerticaDB
 metadata:
-  name: {{ .Values.verticaDB.name }}
-  namespace: {{ .Values.verticaDB.namespace }}
+  name: verticadb
+  namespace: vertica
 spec:
   subclusters:
-    - name: {{ .Values.verticaDB.subclusters.name }}
-      size: {{ .Values.verticaDB.subclusters.size }}
+    - name: sc1
+      size: 3
       resources:
         limits:
           cpu: {{ .Values.verticaDB.subclusters.resources.limits.cpu }}
@@ -15,13 +15,11 @@ spec:
           cpu: {{ .Values.verticaDB.subclusters.resources.requests.cpu }}
           memory: {{ .Values.verticaDB.subclusters.resources.requests.memory }}
   communal:
-    path: {{ .Values.verticaDB.communal.path }}
+    path: "/mnt/home/test/vertica-data"
   volumeMounts:
     - name: communal-storage
-      mountPath: {{ .Values.verticaDB.communal.path }}
+      mountPath: "/mnt/home/test/vertica-data"
   volumes:
     - name: communal-storage
       persistentVolumeClaim:
-        claimName: {{ .Values.verticaDB.volumes.persistentVolumeClaim.claimName }}
-
-
+        claimName: verticadb-pvc
