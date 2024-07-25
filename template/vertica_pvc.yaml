@@ -5,7 +5,7 @@ metadata:
 spec:
   storageClassName: {{ .Values.persistentVolumeClaim.storageClassName }}
   accessModes:
-    - {{ .Values.persistentVolumeClaim.accessModes[0] }}
+    - {{ .Values.persistentVolumeClaim.accessModes }}
   resources:
     requests:
       storage: {{ .Values.persistentVolumeClaim.resources.requests.storage }}
