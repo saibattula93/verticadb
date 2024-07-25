@@ -1,4 +1,4 @@
-verticaDB:
+verticadb:
   subclusters:
     resources:
       limits:
@@ -8,30 +8,3 @@ verticaDB:
         cpu: "2"          
         memory: "10Gi"
 
-
-
-persistentVolume:
-  name: verticadb-pv
-  storageClassName: rook-ceph-block
-  capacity:
-    storage: 100Gi
-  accessModes:
-    - ReadWriteOnce
-  local:
-    path: /mnt/home/test/vertica
-  nodeAffinity:
-    required:
-      nodeSelectorTerms:
-        - matchExpressions:
-            - values:
-                - cloudlyte
-
-
-persistentVolumeClaim:
-  name: verticadb-pvc
-  storageClassName: rook-ceph-block
-  accessModes:
-    - ReadWriteOnce
-  resources:
-    requests:
-      storage: 100Gi
