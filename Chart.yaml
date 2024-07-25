@@ -1,6 +1,6 @@
 apiVersion: v2
-name: verticadb-operator
-description: An operator that can deploy and manage Vertica clusters
+name: verticadb-cluster
+description: A cluster that can deploy and manage Vertica database
 type: application
 version: 2.1.3
 sources:
