@@ -7,7 +7,7 @@ spec:
   capacity:
     storage: {{ .Values.persistentVolume.capacity.storage }}
   accessModes:
-    - {{ .Values.persistentVolume.accessModes[0] }}
+    - {{ .Values.persistentVolume.accessModes }}
   local:
     path: {{ .Values.persistentVolume.local.path }}
   nodeAffinity:
@@ -17,4 +17,4 @@ spec:
             - key: kubernetes.io/hostname
               operator: In
               values:
-                - {{ .Values.persistentVolume.nodeAffinity.required.nodeSelectorTerms[0].matchExpressions[0].values[0] }}
+                - {{ .Values.persistentVolume.nodeAffinity.required.nodeSelectorTerms.matchExpressions.values }}
