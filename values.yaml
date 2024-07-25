@@ -1,0 +1,46 @@
+verticaDB:
+  name: verticadb
+  namespace: vertica
+  subclusters:
+    - name: sc1
+      size: 3
+      resources:
+        limits:
+          cpu: 3
+          memory: 30Gi
+        requests:
+          cpu: 2
+          memory: 10Gi
+  communal:
+    path: "/mnt/home/test/vertica"
+  volumes:
+    persistentVolumeClaim:
+      claimName: verticadb-pvc
+
+
+
+persistentVolume:
+  name: verticadb-pv
+  storageClassName: rook-ceph-block
+  capacity:
+    storage: 100Gi
+  accessModes:
+    - ReadWriteOnce
+  local:
+    path: /mnt/home/test/vertica
+  nodeAffinity:
+    required:
+      nodeSelectorTerms:
+        - matchExpressions:
+            - values:
+                - cloudlyte
+
+
+persistentVolumeClaim:
+  name: verticadb-pvc
+  storageClassName: rook-ceph-block
+  accessModes:
+    - ReadWriteOnce
+  resources:
+    requests:
+      storage: 100Gi

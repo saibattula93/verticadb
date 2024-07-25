@@ -1,1 +1,1 @@
-# verticadb
+# verticadb-cluster
