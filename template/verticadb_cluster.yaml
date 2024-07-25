@@ -5,15 +5,15 @@ metadata:
   namespace: {{ .Values.verticaDB.namespace }}
 spec:
   subclusters:
-    - name: {{ .Values.verticaDB.subclusters[0].name }}
-      size: {{ .Values.verticaDB.subclusters[0].size }}
+    - name: {{ .Values.verticaDB.subclusters.name }}
+      size: {{ .Values.verticaDB.subclusters.size }}
       resources:
         limits:
-          cpu: {{ .Values.verticaDB.subclusters[0].resources.limits.cpu }}
-          memory: {{ .Values.verticaDB.subclusters[0].resources.limits.memory }}
+          cpu: {{ .Values.verticaDB.subclusters.resources.limits.cpu }}
+          memory: {{ .Values.verticaDB.subclusters.resources.limits.memory }}
         requests:
-          cpu: {{ .Values.verticaDB.subclusters[0].resources.requests.cpu }}
-          memory: {{ .Values.verticaDB.subclusters[0].resources.requests.memory }}
+          cpu: {{ .Values.verticaDB.subclusters.resources.requests.cpu }}
+          memory: {{ .Values.verticaDB.subclusters.resources.requests.memory }}
   communal:
     path: {{ .Values.verticaDB.communal.path }}
   volumeMounts:
