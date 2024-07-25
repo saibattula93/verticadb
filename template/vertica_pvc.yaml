@@ -1,8 +1,12 @@
-persistentVolumeClaim:
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
   name: verticadb-pvc
   namespace: vertica
+spec:
   storageClassName: rook-ceph-block
-  accessModes: ReadWriteOnce
+  accessModes:
+    - ReadWriteOnce
   resources:
     requests:
       storage: 100Gi
