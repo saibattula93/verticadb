@@ -4,4 +4,4 @@ description: An operator that can deploy and manage Vertica clusters
 type: application
 version: 2.1.3
 sources:
-  - https://vertica.github.io/charts/verticadb-operator
+  - https://github.com/saibattula93/verticadb
