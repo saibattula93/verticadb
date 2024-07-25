@@ -1,21 +1,12 @@
 verticaDB:
-  name: verticadb
-  namespace: vertica
   subclusters:
-    - name: sc1
-      size: 3
-      resources:
-        limits:
-          cpu: 3
-          memory: 30Gi
-        requests:
-          cpu: 2
-          memory: 10Gi
-  communal:
-    path: "/mnt/home/test/vertica"
-  volumes:
-    persistentVolumeClaim:
-      claimName: verticadb-pvc
+    resources:
+      limits:
+        cpu: "3"          
+        memory: "30Gi"   
+      requests:
+        cpu: "2"          
+        memory: "10Gi"
 
 
 
