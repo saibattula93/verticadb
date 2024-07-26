@@ -9,11 +9,11 @@ spec:
       size: 3
       resources:
         limits:
-          cpu: {{ .Values.verticaDB.subclusters.resources.limits.cpu }}
-          memory: {{ .Values.verticaDB.subclusters.resources.limits.memory }}
+          cpu: {{ .Values.VerticaDB.subclusters.resources.limits.cpu }}
+          memory: {{ .Values.VerticaDB.subclusters.resources.limits.memory }}
         requests:
-          cpu: {{ .Values.verticaDB.subclusters.resources.requests.cpu }}
-          memory: {{ .Values.verticaDB.subclusters.resources.requests.memory }}
+          cpu: {{ .Values.VerticaDB.subclusters.resources.requests.cpu }}
+          memory: {{ .Values.VerticaDB.subclusters.resources.requests.memory }}
   communal:
     path: "/mnt/home/test/vertica-data"
   volumeMounts:
