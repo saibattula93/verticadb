@@ -16,7 +16,6 @@ spec:
   subclusters:
     - name: {{ .Values.spec.subclusters.name }}
       size: {{ .Values.spec.subclusters.size }}
-      {{ end }}
       resources:
         limits:
           cpu: {{ .Values.VerticaDB.subclusters.resources.limits.cpu }}
