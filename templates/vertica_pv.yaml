@@ -3,9 +3,9 @@ kind: PersistentVolume
 metadata:
   name: verticadb-pv
 spec:
-  storageClassName: rook-ceph-block
+  storageClassName: {{ .Values.persistentVolume.spec.storageClassName }}
   capacity:
-    storage: 100Gi
+    storage: {{ .Values.persistentVolume.spec.capacity.storage }}
   accessModes:
     - ReadWriteOnce
   local:
