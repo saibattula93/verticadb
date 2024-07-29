@@ -2,11 +2,11 @@ apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
   name: verticadb-pvc
-  namespace: vertica
+  namespace: {{ .Values.namespace }}
 spec:
-  storageClassName: rook-ceph-block
+  storageClassName: {{ .Values.persistentVolumeClaim.spec.storageClassName }}
   accessModes:
     - ReadWriteOnce
   resources:
     requests:
-      storage: 100Gi
+      storage: {{ .Values.persistentVolumeClaim.spec.resources.requests.storage }}
