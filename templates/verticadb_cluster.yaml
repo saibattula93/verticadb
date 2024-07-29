@@ -10,19 +10,19 @@
 apiVersion: vertica.com/v1
 kind: VerticaDB
 metadata:
-  name: {{ .Values.metadata.name }}
-  namespace: {{ .Values.metadata.namespace }}
+  name: {{ .Values.verticaDB.metadata.name }}
+  namespace: {{ .Values.verticaDB.metadata.namespace }}
 spec:
   subclusters:
-    - name: {{ .Values.spec.subclusters.name }}
-      size: {{ .Values.spec.subclusters.size }}
+    - name: {{ .Values.verticaDB.subclusters[0].name }}
+      size: {{ .Values.verticaDB.subclusters[0].size }}
       resources:
         limits:
-          cpu: {{ .Values.VerticaDB.subclusters.resources.limits.cpu }}
-          memory: {{ .Values.VerticaDB.subclusters.resources.limits.memory }}
+          cpu: "{{ .Values.verticaDB.subclusters[0].resources.limits.cpu }}"
+          memory: "{{ .Values.verticaDB.subclusters[0].resources.limits.memory }}"
         requests:
-          cpu: {{ .Values.VerticaDB.subclusters.resources.requests.cpu }}
-          memory: {{ .Values.VerticaDB.subclusters.resources.requests.memory }}
+          cpu: "{{ .Values.verticaDB.subclusters[0].resources.requests.cpu }}"
+          memory: "{{ .Values.verticaDB.subclusters[0].resources.requests.memory }}"
   communal:
     path: "/mnt/home/test/vertica1"
   volumeMounts:
