@@ -1,15 +1,14 @@
-VerticaDB:
+verticaDB:
   metadata:
     name: verticadb
     namespace: vertica
-  spec:
-    subclusters:
-      - name: sc1
-        size: 3
-        resources:
-           limits:
-             cpu: "3"          
-             memory: "30Gi"   
-           requests:
-             cpu: "2"          
-             memory: "10Gi"
+  subclusters:
+    - name: sc1
+      size: 3
+      resources:
+        limits:
+          cpu: "3"
+          memory: "30Gi"
+        requests:
+          cpu: "2"
+          memory: "10Gi"
