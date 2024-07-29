@@ -1,10 +1,5 @@
 verticaDB:
-  metadata:
-    name: verticadb
-    namespace: vertica
   subclusters:
-    - name: sc1
-      size: 3
       resources:
         limits:
           cpu: "3"
@@ -12,3 +7,18 @@ verticaDB:
         requests:
           cpu: "2"
           memory: "10Gi"
+
+
+persistentVolume:
+  spec:
+    storageClassName: rook-ceph-block
+    capacity:
+      storage: 100Gi
+
+namespace: vertica
+persistentVolumeClaim:
+  spec:
+    storageClassName: rook-ceph-block
+    resources:
+      requests:
+        storage: 100Gi
