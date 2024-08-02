@@ -10,7 +10,7 @@ spec:
       command:
         - bash
         - -c
-        - "ssh -o 'StrictHostKeyChecking no' -i /home/dbadmin/.ssh/id_rsa dbadmin@$BACKUP_HOST '/opt/vertica/bin/vbr -t init --cloud-force-init --config-file /etc/vertica/backup/backup.ini'"
+        - '/opt/vertica/bin/vbr -t init --cloud-force-init --config-file /etc/vertica/backup/backup.ini'"
       env:
         - name: BACKUP_HOST
           valueFrom:
