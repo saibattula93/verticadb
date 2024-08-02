@@ -15,11 +15,17 @@ spec:
           cpu: {{ .Values.verticaDB.subclusters.resources.requests.cpu }}
           memory: {{ .Values.verticaDB.subclusters.resources.requests.memory }}
   communal:
-    path: "/mnt/home/test/vertica2"
+    path: "/mnt/home/test/vertica3"
   volumeMounts:
     - name: communal-storage
-      mountPath: "/mnt/home/test/vertica2"
+      mountPath: "/mnt/home/test/vertica3"
+    - name: backup-configmap
+      mountPath: /etc/vertica/backup
+      subPath: backup.ini
   volumes:
     - name: communal-storage
       persistentVolumeClaim:
         claimName: verticadb-pvc
+    - name: backup-configmap
+      configMap:
+        name: backup-configmap
