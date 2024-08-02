@@ -1,0 +1,19 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: backup-configmap
+data:
+  backup-host: |
+        backup-pod-dns
+  backup.ini: |
+    [CloudStorage]
+    cloud_storage_backup_path = http://121.241.227.70/32000
+    cloud_storage_backup_file_system_path = [backup-pod-dns]:/opt/vertica/config/
+
+    [Database]
+    dbName = vertdb
+
+    [Misc]
+    tempDir = /tmp/vbr
+    restorePointLimit = 7
+    objectRestoreMode = coexist
