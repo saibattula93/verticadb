@@ -1,0 +1,17 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: vertica-backup-job
+  namespace: vertica
+spec:
+  template:
+    spec:
+      containers:
+      - name: backup
+        image: vertica/vertica-k8s:latest
+        command: ["/bin/sh"]
+        args: ["-c", "vsql -w password123 -c 'CREATE ARCHIVE nightly;' && vsql -w password123 -c 'SAVE RESTORE POINT TO ARCHIVE nightly;'"]
+        env:
+        - name: VERTICA_PASSWORD
+          value: "password123"
+      restartPolicy: Never
