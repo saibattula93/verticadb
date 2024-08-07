@@ -1,0 +1,9 @@
+apiVersion: vertica.com/v1beta1
+kind: VerticaRestorePointsQuery
+metadata:
+  name: restorepoints-query
+  namespace: vertica
+spec:
+  verticaDBName: vertdb
+  filterOptions:
+    archiveName: "nightly"
