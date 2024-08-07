@@ -9,7 +9,7 @@ spec:
   accessModes:
     - ReadWriteOnce
   local:
-    path: /mnt/home/test/vertica3
+    path: /mnt/home/test/vertica4
   nodeAffinity:
     required:
       nodeSelectorTerms:
