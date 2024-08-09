@@ -8,9 +8,9 @@ spec:
     spec:
       containers:
       - name: backup
-        image: opentext/vertica-k8s:24.1.0-0-minimal
+        image: vertica/vertica-k8s:latest
         command: ["/bin/sh"]
-        args: ["-c", "vsql -c 'CREATE ARCHIVE nightly;' && vsql -c 'SAVE RESTORE POINT TO ARCHIVE nightly;'"]
+        args: ["-c", "vsql -h verticadb-sc1-0  -U dbadmin -c 'CREATE ARCHIVE nightly;' && vsql -h verticadb-sc1-0  -U dbadmin -c 'SAVE RESTORE POINT TO ARCHIVE nightly;'"]
         #env:
         #- name: VERTICA_PASSWORD
          # value: "password123"
