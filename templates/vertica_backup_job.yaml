@@ -12,6 +12,6 @@ spec:
         command: ["/bin/sh"]
         args: ["-c", "vsql -w password123 -c 'CREATE ARCHIVE nightly;' && vsql -w password123 -c 'SAVE RESTORE POINT TO ARCHIVE nightly;'"]
         env:
-        - name: VERTICA_PASSWORD
-          value: "password123"
+        #- name: VERTICA_PASSWORD
+         # value: "password123"
       restartPolicy: Never
