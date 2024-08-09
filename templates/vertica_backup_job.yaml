@@ -10,7 +10,7 @@ spec:
       - name: backup
         image: vertica/vertica-k8s:latest
         command: ["/bin/sh"]
-        args: ["-c", "vsql -w password123 -c 'CREATE ARCHIVE nightly;' && vsql -w password123 -c 'SAVE RESTORE POINT TO ARCHIVE nightly;'"]
+        args: ["-c", "vsql -c 'CREATE ARCHIVE nightly;' && vsql -c 'SAVE RESTORE POINT TO ARCHIVE nightly;'"]
         env:
         #- name: VERTICA_PASSWORD
          # value: "password123"
