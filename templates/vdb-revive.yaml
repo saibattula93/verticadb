@@ -1,0 +1,17 @@
+apiVersion: vertica.com/v1
+kind: VerticaDB
+metadata:
+  name: vdb-revive
+  namespace: vertica
+spec:
+  initPolicy: Revive
+  restorePoint:
+    archive: "nightly"
+    index: 1
+  communal:
+    path: "s3://tca-staging"
+    endpoint: http://100.121.44.231:32000
+    credentialSecret: minio-creds
+  subclusters:
+  - name: primary
+    size: 3
